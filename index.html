@@ -37,10 +37,14 @@
         
         function handle(){
             const {pathname, href, host, port} = window.location
-
-            console.log(pathname, href, host, port)
+            const route = routes[pathname] || routes[404]
+            console.log('antes do fetch')
+            fetch(route)
+            .then(data => data.text())
+            .then(html => console.log(html))
+            
+            console.log(route)
         }
-
     </script>
 </body>
 </html>
