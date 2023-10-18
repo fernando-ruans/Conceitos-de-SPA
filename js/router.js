@@ -15,8 +15,8 @@ export class Router {
     }
     
     handle() {
-        const {pathname, href, host, port} = window.location
-        const route = this.routes[pathname] || routes[404]
+        const {pathname} = window.location
+        const route = this.routes[pathname] || this.routes[404]
         fetch(route)
         .then(data => data.text())
         .then(html => {
